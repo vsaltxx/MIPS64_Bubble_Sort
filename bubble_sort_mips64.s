@@ -1,18 +1,18 @@
-; Autor reseni: 								Veranika Saltanava xsalta01
-; Pocet cyklu k serazeni puvodniho retezce:			4348
+; Autor reseni: 					vsaltxx		
+; Pocet cyklu k serazeni puvodniho retezce:		4348
 ; Pocet cyklu razeni sestupne serazeneho retezce:	4396
 ; Pocet cyklu razeni vzestupne serazeneho retezce: 	4348
-; Pocet cyklu razeni retezce s vasim loginem:		958
-; Implementovany radici algoritmus: 				Bubble Sort
+; Pocet cyklu razeni retezce s vasim loginem:		
+; Implementovany radici algoritmus: 			Bubble Sort
 ; ------------------------------------------------
 
 ; DATA SEGMENT
                 .data
-; login:         .asciiz "vitejte-v-inp-2023"   	; puvodni uvitaci retezec
+; login:         .asciiz "vitejte-v-inp-2023"   ; puvodni uvitaci retezec
 ; login:         .asciiz "vvttpnjiiee3220---"  	; sestupne serazeny retezec
 ; login:         .asciiz "---0223eeiijnpttvv"  	; vzestupne serazeny retezec
- login:          .asciiz "xsalta01"            	; SEM DOPLNTE VLASTNI LOGIN
-                                                	; A POUZE S TIMTO ODEVZDEJTE
+ login:          .asciiz "vsaltxx"            	; SEM DOPLNTE VLASTNI LOGIN
+                                                ; A POUZE S TIMTO ODEVZDEJTE
 
 params_sys5:    .space  8   ; misto pro ulozeni adresy pocatku
                             ; retezce pro vypis pomoci syscall 5
@@ -49,14 +49,14 @@ main:
   
   bubble_sort:
   
-  	daddi $s0, r0, 0					; i
+  	daddi $s0, r0, 0				; i
 		
 	daddi r4, r0, login
   	
       while_loop:
       	
-      	daddi  $s1, r0, 1			; j
-      	daddi   $t0, r0, login   		; load address of login into $t0	     	           
+      	daddi  $s1, r0, 1				; j
+      	daddi   $t0, r0, login   			; load address of login into $t0	     	           
       	
           	for_loop:
           	
@@ -79,12 +79,12 @@ main:
 
         		daddi $t5, r0, 1
 			dsub $t5, $t1, $t5 		; $t5 = length - 1
-      		dsub $t4, $t5, $s0		; $t4 = length - i - 1
-      		dsub $t4, $t4, $s1		; j < length - i - 1
+      		dsub $t4, $t5, $s0			; $t4 = length - i - 1
+      		dsub $t4, $t4, $s1			; j < length - i - 1
 
           		bgez $t4, for_loop  		; continue looping
       		
-      		daddi $s0, $s0, 1		; i++      		
+      		daddi $s0, $s0, 1			; i++      		
         		dsub $t4, $t1, $s0  		; $t4 = length - i --> for j := 0 to length
       		      		
          		bgez $t4, while_loop		; if $t4 > 0 --> continue looping
